@@ -126,12 +126,8 @@ if (p == NULL) {
       return 0;
     }
 
-
-
-    // Print Received protocol     fputs(recvBuff, stdout);
-
     char *found_substr = strstr(recvBuff, supported_prot);
-    // For my debug
+
     //  printf("found:%s\n",found_substr);
 
     if (found_substr != NULL)
@@ -143,7 +139,6 @@ if (p == NULL) {
   }
   // Receive operation from the server
 
-
   if ((n = recv(sockfd, recvBuff, sizeof(recvBuff) - 1, 0)) > 0)
   {
     char *token;
@@ -151,7 +146,7 @@ if (p == NULL) {
     recvBuff[n] = 0;
     printf("Assigmnet is  %s", recvBuff);
 
-    // recognize the operation and value
+    //Recognize the operation and value
     token = strtok(recvBuff, " ");
     int i = 0;
     while (token != NULL && i < MAX_TOKEN)
@@ -164,7 +159,7 @@ if (p == NULL) {
     char response[MAX_RES_LEN + 1];
     float o1;
     float o2;
-    // Get number to send to calc funtion
+    // Get the number to send to calc function
     sscanf(tokens[1], "%f", &o1);
     sscanf(tokens[2], "%f", &o2);
     // printf("%f--%f\n",o1,o2);
@@ -177,7 +172,7 @@ if (p == NULL) {
     send(sockfd, response, strlen(response), 0);
   }
 
-  // receiving  OK from the server
+  //Receiving  OK from the server
   if ((n = recv(sockfd, recvBuff, sizeof(recvBuff) - 1, 0)) > 0)
   {
     char *token1;
