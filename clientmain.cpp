@@ -1,4 +1,3 @@
-
 #include <sys/socket.h>
 #include <sys/types.h>
 #include <netinet/in.h>
@@ -16,7 +15,7 @@
 #define MAX_TOKEN 3
 #define MAX_RES_LEN 100
 
-// Function that do operations
+// Function for operations
 void caculate_operands(char *ret, char *operation, float op1, float op2)
 {
   float result = 0;
@@ -34,9 +33,6 @@ void caculate_operands(char *ret, char *operation, float op1, float op2)
   if (!strcmp(operation, "sub") || !strcmp(operation, "fsub"))
     result = op1 - op2;
 
-  /*  For my debug
-      printf("\nret:%f\n",result);
-  */
   sprintf(ret, "%f", result);
 
   return;
