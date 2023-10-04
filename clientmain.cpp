@@ -181,12 +181,6 @@ if (p == NULL) {
     send(sockfd, response, strlen(response), 0);
   }
 
-
-//char str1[20];
-
-//   printf("Enter name: ");
-//   scanf("%19s", str1);
-
   // receiving  OK from the server
   if ((n = recv(sockfd, recvBuff, sizeof(recvBuff) - 1, 0)) > 0)
   {
