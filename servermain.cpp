@@ -86,7 +86,7 @@ int main(int argc , char *argv[])
   	hints.ai_socktype=0; //SOCK_STREAM;
   	hints.ai_protocol=0;
   	hints.ai_flags = AI_ALL; //AI_CANONNAME;
-	//Check Arguments number=3
+	//Check Arguments
   if (argc != 2)
   {
     fprintf(stderr, "usage: %s IP server:Port", argv[0]);
@@ -109,7 +109,6 @@ int main(int argc , char *argv[])
       exit(1);
     }
 
-    
 //Binding
     if (bind(master_socket, p->ai_addr, p->ai_addrlen) == -1)
     {
@@ -130,7 +129,7 @@ int main(int argc , char *argv[])
   freeaddrinfo(servinfo);
 
 
-//////////////////////
+////////////
 
 	   	 #ifdef DEBUG
 	   	 printf("Listening on port %d \n", port);  	
@@ -162,7 +161,7 @@ int main(int argc , char *argv[])
 						perror("accept error realised...");  
 						exit(6);  
 						}              
-					#ifdef DEBUG							//informing user of socket name 
+					#ifdef DEBUG							//Telling socket name to the user 
 					printf("New connection....\n");                    
 					#endif								
 					//sending protocol message to the server                        
@@ -184,7 +183,7 @@ int main(int argc , char *argv[])
 						if(recv(new_socket, &buffer, sizeof(buffer), 0) > 0)          						
 						{
 						#ifdef DEBUG
-						printf("%s\n", buffer);				//printing the current received buffer message.	
+						printf("%s\n", buffer);	//printing the current received message in the buffer.	
 						#endif
 						alarm(0);	      
 						}
