@@ -4,7 +4,6 @@
 #include <arpa/inet.h>
 #include <calcLib.h>
 #include <netdb.h>
-//#define DEBUG
 #include <math.h>
 
 int main(int argc, char *argv[])
